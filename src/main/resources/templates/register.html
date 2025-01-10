@@ -5,45 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-        }
+    <link th:rel="stylesheet" th:href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link th:rel="stylesheet" th:href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link th:rel="stylesheet" th:href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link th:rel="stylesheet" th:href="@{api/css/style.css}">
 
-        .register-container {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 400px;
-            text-align: center;
-        }
-
-        .btn {
-            width: 100%;
-            margin: 5px 0;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-        }
-        .form-control {
-        	margin: 5px 0;
-        }
-        
-        .btn i {
-			margin-right: 8px;
-			font-size: 18px;
-			vertical-align: middle;
-		}
-    </style>
 </head>
 
 <body>
