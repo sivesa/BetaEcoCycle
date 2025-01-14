@@ -1,32 +1,41 @@
 async function registerUser() {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
-    const email = document.getElementById('identifier').value;
+    const identifier = document.getElementById('identifier').value;
     const password = document.getElementById('password').value;
     const repeatPassword = document.getElementById('repeatPassword').value;
+
     if (password !== repeatPassword) {
         alert('Passwords do not match. Please try again.');
         return;
     }
+    
+    const payload = {
+        firstName: firstName,
+        lastName: lastName,
+        identifier: identifier,
+        password: password,
+        repeatPassword: repeatPassword,
+    };
+    console.log(JSON.stringify(payload));
 
-    const hashedPassword = await bcrypt.hash(password, 10); // Hash the password with a salt round of 10
-    
-    
-    const data = new URLSearchParams();
-    data.append('firstName', firstName);
-    data.append('lastName', lastName);
-    data.append('identifier', email);
-    data.append('password', hashedPassword);
     try {
-        const response = await fetch('/api/register', {
+        console.log("Sending request to http://127.0.0.1:8080/api/household/register");
+        
+        const response = await fetch('http://127.0.0.1:8080/api/household/register', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json',
             },
-            body: data
+            body: JSON.stringify(payload),
+            mode: "cors",
         });
+        console.log(response);
         if (response.ok) {
-            window.location.href = '/landing.html'; // Redirect to landing page
+            const result = await response.json();
+            console.log(result);
+            alert('Registration successful: ' + JSON.stringify(result));
+            //window.location.href = '/landing.html'; // Redirect to landing page
         } else {
             alert('Registration failed. Please try again.');
         }
@@ -35,6 +44,7 @@ async function registerUser() {
         alert('An error occurred. Please try again later.');
     }
 }
+
 function registerWithGoogle() {
     // TODO: API call for Google registration
     window.location.href = '/api/auth/google'; // Replace with actual Google registration API
