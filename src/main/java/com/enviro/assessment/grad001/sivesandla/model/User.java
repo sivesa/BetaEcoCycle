@@ -80,19 +80,19 @@ public class User {
         this.username = username;
     }
     
-    public String gethhAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void sethhAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
     
-    public int gethhPoints() {
+    public int getPoints() {
         return points;
     }
 
-    public void sethhPoints(int points) {
+    public void setPoints(int points) {
         this.points = points;
     }
 
