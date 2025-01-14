@@ -18,11 +18,17 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String email;
+    
+    @Column(nullable = false)
+    private String address;
+    
+    @Column(nullable = false)
+    private int points;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, unique = true, length = 5)
+    @Column(nullable = false, unique = true, length = 10)
     private String username;
 
     // Getters and Setters
@@ -72,6 +78,22 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+    
+    public String gethhAddress() {
+        return address;
+    }
+
+    public void sethhAddress(String address) {
+        this.address = address;
+    }
+    
+    public int gethhPoints() {
+        return points;
+    }
+
+    public void sethhPoints(int points) {
+        this.points = points;
     }
 
     // Override equals() and hashCode() based on membershipNumber

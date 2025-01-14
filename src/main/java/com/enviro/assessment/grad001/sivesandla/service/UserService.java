@@ -14,13 +14,17 @@ public class UserService {
     private UserRepository userRepository;
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    
+    private int points = 0;
 
-    public User registerUser(String firstName, String lastName, String email, String password) {
+    public User registerUser(String firstName, String lastName, String email, String address, String password) {
         String username = generateUsername(email);
         User user = new User();
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
+        user.sethhAddress(address);
+        user.sethhPoints(points);
         user.setPassword(passwordEncoder.encode(password));
         user.setUsername(username);
         return userRepository.save(user);
