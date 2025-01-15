@@ -1,6 +1,6 @@
 package com.enviro.assessment.grad001.sivesandla.service;
 
-import com.enviro.assessment.grad001.sivesandla.model.User;
+import com.enviro.assessment.grad001.sivesandla.model.Household;
 import com.enviro.assessment.grad001.sivesandla.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,23 +17,23 @@ public class UserService {
     
     private int points = 0;
 
-    public User registerUser(String firstName, String lastName, String email, String password, String address) {
+    public Household registerHousehold(String firstName, String lastName, String email, String password, String address) {
         String username = generateUsername(email);
-        User user = new User();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        user.setAddress(address);
-        user.setPoints(points);
-        user.setPassword(passwordEncoder.encode(password));
-        user.setUsername(username);
-        return userRepository.save(user);
+        Household household = new Household();
+        household.setFirstName(firstName);
+        household.setLastName(lastName);
+        household.setEmail(email);
+        household.setAddress(address);
+        household.setPoints(points);
+        household.setPassword(passwordEncoder.encode(password));
+        household.setUsername(username);
+        return userRepository.save(household);
     }
 
-    public boolean loginUser(String username, String password) {
-        User user = userRepository.findByUsername(username);
-        if (user != null) {
-            return passwordEncoder.matches(password, user.getPassword());
+    public boolean loginHousehold(String username, String password) {
+        Household household = userRepository.findByUsername(username);
+        if (household != null) {
+            return passwordEncoder.matches(password, household.getPassword());
         }
         return false;
     }
