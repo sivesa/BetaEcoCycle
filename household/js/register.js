@@ -19,7 +19,6 @@ async function registerUser() {
         repeatPassword: repeatPassword,
         address: address
     };
-    console.log(JSON.stringify(payload));
 
     try {
         console.log("Sending request to http://127.0.0.1:8080/api/household/register");
