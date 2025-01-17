@@ -1,10 +1,10 @@
 package com.enviro.assessment.grad001.sivesandla.controller;
 
-import com.enviro.assessment.grad001.sivesandla.model.Household;
+import com.enviro.assessment.grad001.sivesandla.model.Collector;
 import com.enviro.assessment.grad001.sivesandla.service.UserService;
-import com.enviro.assessment.grad001.sivesandla.repository.HouseholdRepository;
-import com.enviro.assessment.grad001.sivesandla.user_dto.HouseholdRegistrationRequest;
-import com.enviro.assessment.grad001.sivesandla.user_dto.HouseholdAuthRequest;
+import com.enviro.assessment.grad001.sivesandla.repository.CollectorRepository;
+import com.enviro.assessment.grad001.sivesandla.user_dto.CollectorRegistrationRequest;
+import com.enviro.assessment.grad001.sivesandla.user_dto.CollectorAuthRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,36 +16,35 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://127.0.0.1:8000") // Allow UI's origin
-public class HouseholdController {
+public class CollectorController {
     @Autowired
     private UserService userService;
     
     @Autowired
-    private HouseholdRepository userRepository;
+    private CollectorRepository userRepository;
 
-	@PostMapping("/api/household/register")
-  public ResponseEntity<?> register(@RequestBody HouseholdRegistrationRequest request) {
+	@PostMapping("/api/collector/register")
+  public ResponseEntity<?> register(@RequestBody CollectorRegistrationRequest request) {
       // Check if the password and repeatPassword match
       if (!request.getPassword().equals(request.getRepeatPassword())) {
           return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                   .body("Passwords do not match.");
       }
 
-      // Register the household
-      Household registeredHousehold = userService.registerHousehold(
+      // Register the collector
+      Collector registeredCollector = userService.registerCollector(
               request.getFirstName(),
               request.getLastName(),
               request.getIdentifier(),
-              request.getPassword(),
-              request.getAddress()
+              request.getPassword()
       );
-      return ResponseEntity.status(HttpStatus.CREATED).body(registeredHousehold);
+      return ResponseEntity.status(HttpStatus.CREATED).body(registeredCollector);
   }
 
-    @PostMapping("/api/household/auth")
-    public ResponseEntity<?> householdAuth(@RequestBody HouseholdAuthRequest request) {
+    @PostMapping("/api/collector/auth")
+    public ResponseEntity<?> collectorAuth(@RequestBody CollectorAuthRequest request) {
         
-        if (userService.loginHousehold(request.getUsername(), request.getPassword())) {
+        if (userService.loginCollector(request.getIdentifier(), request.getPassword())) {
             //return "Login successful!";
             return ResponseEntity.status(HttpStatus.CREATED).body(userRepository.findByUsername(request.getUsername()));
         }

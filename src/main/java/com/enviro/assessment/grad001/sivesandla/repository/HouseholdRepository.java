@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 //import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<Household, Long> {
+public interface HouseholdRepository extends JpaRepository<Household, Long> {
     Household findByUsername(String username);
 }
 

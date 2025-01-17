@@ -1,9 +1,9 @@
-package com.enviro.assessment.grad001.sivesandla.household_dto;
+package com.enviro.assessment.grad001.sivesandla.user_dto;
 
-public class HouseholdAuthRequest {
+public class CollectorAuthRequest {
     private String username;
     private String password;
-    private String email;
+    private String identifier;
     
     //Getters and Setters
     public String getUsername() {
@@ -22,11 +22,11 @@ public class HouseholdAuthRequest {
         this.password = password;
     }
     
-    public String getEmail() {
-        return email;
+    public String getIdentifier() {
+        return identifier;
     }
     
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
 }
