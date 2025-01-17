@@ -4,6 +4,7 @@ async function registerUser() {
     const identifier = document.getElementById('identifier').value;
     const password = document.getElementById('password').value;
     const repeatPassword = document.getElementById('repeatPassword').value;
+    const address = document.getElementById('address').value;
 
     if (password !== repeatPassword) {
         alert('Passwords do not match. Please try again.');
@@ -16,26 +17,26 @@ async function registerUser() {
         identifier: identifier,
         password: password,
         repeatPassword: repeatPassword,
+        address: address
     };
     console.log(JSON.stringify(payload));
 
     try {
         console.log("Sending request to http://127.0.0.1:8080/api/household/register");
         
-        const response = await fetch('http://127.0.0.1:8080/api/household/register', {
+        const response = await fetch('http://localhost:8080/api/household/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(payload),
-            mode: "cors",
         });
         console.log(response);
         if (response.ok) {
             const result = await response.json();
             console.log(result);
             alert('Registration successful: ' + JSON.stringify(result));
-            //window.location.href = '/landing.html'; // Redirect to landing page
+            window.location.href = '/index.html'; // Redirect to landing page
         } else {
             alert('Registration failed. Please try again.');
         }
