@@ -16,10 +16,10 @@ public class Collector {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = true, unique = true)
     private String email;
     
-    @Column(nullable = false, unique = true)
+    @Column(nullable = true, unique = true)
     private String phoneNumber;
     
     @Column(nullable = false)
@@ -28,7 +28,7 @@ public class Collector {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false, unique = true, length = 10)
+    @Column(nullable = false, unique = true, length = 255)
     private String username;
     
     // Getters & Setters

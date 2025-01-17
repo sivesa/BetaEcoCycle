@@ -42,14 +42,17 @@ public class CollectorController {
   }
 
     @PostMapping("/api/collector/auth")
-    public ResponseEntity<?> collectorAuth(@RequestBody CollectorAuthRequest request) {
-        
-        if (userService.loginCollector(request.getIdentifier(), request.getPassword())) {
-            //return "Login successful!";
-            return ResponseEntity.status(HttpStatus.CREATED).body(userRepository.findByUsername(request.getUsername()));
+    public ResponseEntity<?> login(@RequestBody CollectorAuthRequest loginRequest) {
+        boolean isAuthenticated = userService.loginCollector(
+                loginRequest.getIdentifier(), 
+                loginRequest.getPassword()
+        );
+
+        if (isAuthenticated) {
+            return ResponseEntity.ok("Login successful");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-		            .body("Passwords or username do not match.");
     }
 }
 
