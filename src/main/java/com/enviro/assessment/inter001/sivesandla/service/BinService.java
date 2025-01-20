@@ -1,7 +1,7 @@
-package com.enviro.assessment.grad001.sivesandla.service;
+package com.enviro.assessment.inter001.sivesandla.service;
 
-import com.enviro.assessment.grad001.sivesandla.model.Bin;
-import com.enviro.assessment.grad001.sivesandla.repository.BinRepository;
+import com.enviro.assessment.inter001.sivesandla.model.Bin;
+import com.enviro.assessment.inter001.sivesandla.repository.BinRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.enviro.assessment.grad001.sivesandla.config;
+package com.enviro.assessment.inter001.sivesandla.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

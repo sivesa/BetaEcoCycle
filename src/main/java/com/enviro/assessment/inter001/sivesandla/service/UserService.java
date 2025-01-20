@@ -1,9 +1,9 @@
-package com.enviro.assessment.grad001.sivesandla.service;
+package com.enviro.assessment.inter001.sivesandla.service;
 
-import com.enviro.assessment.grad001.sivesandla.model.Household;
-import com.enviro.assessment.grad001.sivesandla.model.Collector;
-import com.enviro.assessment.grad001.sivesandla.repository.HouseholdRepository;
-import com.enviro.assessment.grad001.sivesandla.repository.CollectorRepository;
+import com.enviro.assessment.inter001.sivesandla.model.Household;
+import com.enviro.assessment.inter001.sivesandla.model.Collector;
+import com.enviro.assessment.inter001.sivesandla.repository.HouseholdRepository;
+import com.enviro.assessment.inter001.sivesandla.repository.CollectorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

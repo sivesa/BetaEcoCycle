@@ -1,7 +1,7 @@
-package com.enviro.assessment.grad001.sivesandla.controller;
+package com.enviro.assessment.inter001.sivesandla.controller;
 
-import com.enviro.assessment.grad001.sivesandla.model.Bin;
-import com.enviro.assessment.grad001.sivesandla.service.BinService;
+import com.enviro.assessment.inter001.sivesandla.model.Bin;
+import com.enviro.assessment.inter001.sivesandla.service.BinService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

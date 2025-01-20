@@ -1,10 +1,10 @@
-package com.enviro.assessment.grad001.sivesandla.controller;
+package com.enviro.assessment.inter001.sivesandla.controller;
 
-import com.enviro.assessment.grad001.sivesandla.model.Household;
-import com.enviro.assessment.grad001.sivesandla.service.UserService;
-import com.enviro.assessment.grad001.sivesandla.repository.HouseholdRepository;
-import com.enviro.assessment.grad001.sivesandla.user_dto.HouseholdRegistrationRequest;
-import com.enviro.assessment.grad001.sivesandla.user_dto.HouseholdAuthRequest;
+import com.enviro.assessment.inter001.sivesandla.model.Household;
+import com.enviro.assessment.inter001.sivesandla.service.UserService;
+import com.enviro.assessment.inter001.sivesandla.repository.HouseholdRepository;
+import com.enviro.assessment.inter001.sivesandla.user_dto.HouseholdRegistrationRequest;
+import com.enviro.assessment.inter001.sivesandla.user_dto.HouseholdAuthRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

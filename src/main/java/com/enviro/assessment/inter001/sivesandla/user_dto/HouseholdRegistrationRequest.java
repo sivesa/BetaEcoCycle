@@ -1,4 +1,4 @@
-package com.enviro.assessment.grad001.sivesandla.user_dto;
+package com.enviro.assessment.inter001.sivesandla.user_dto;
 
 public class HouseholdRegistrationRequest {
 

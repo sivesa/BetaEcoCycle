@@ -1,4 +1,4 @@
-package com.enviro.assessment.grad001.sivesandla;
+package com.enviro.assessment.inter001.sivesandla;
 
 import static org.junit.Assert.assertTrue;
 

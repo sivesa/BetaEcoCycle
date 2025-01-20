@@ -1,4 +1,4 @@
-package com.enviro.assessment.grad001.sivesandla.util;
+package com.enviro.assessment.inter001.sivesandla.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

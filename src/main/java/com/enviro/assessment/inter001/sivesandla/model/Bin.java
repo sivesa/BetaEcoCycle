@@ -1,4 +1,4 @@
-package com.enviro.assessment.grad001.sivesandla.model;
+package com.enviro.assessment.inter001.sivesandla.model;
 
 import javax.persistence.*;
 
