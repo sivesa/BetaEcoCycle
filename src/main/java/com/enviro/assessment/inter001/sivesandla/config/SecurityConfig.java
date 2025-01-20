@@ -17,7 +17,7 @@ public class SecurityConfig {
         http
             .csrf().disable()
             .authorizeHttpRequests()
-            .antMatchers("/api/househould/dashboard").authenticated()
+            .antMatchers("/api/household/dashboard").authenticated()
             .anyRequest().permitAll()
             .and()
             .formLogin().disable() // Disable default login form
@@ -39,6 +39,19 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+    
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+            .headers(headers -> headers
+                .frameOptions(frameOptions -> frameOptions.sameOrigin()) // Allow iframe embedding from the same origin
+            )
+            .authorizeHttpRequests(auth -> auth
+                .anyRequest().permitAll()
+            );
+
+        return http.build();
     }
 }
 

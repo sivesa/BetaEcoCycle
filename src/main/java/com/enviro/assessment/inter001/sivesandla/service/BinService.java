@@ -27,7 +27,13 @@ public class BinService {
     }
 
     public Optional<Bin> getBinsByHousehold(Long householdId) {
+        System.out.println("BIN Service: ");
+        System.out.println(binRepository.findByHousehold_HouseholdId(householdId));
         return binRepository.findByHousehold_HouseholdId(householdId);
+    }
+    
+    public List<Bin> getBinsByHouseholdId(Long householdId) {
+        return binRepository.findByHouseholdId(householdId);
     }
 
     public void deleteBin(Long binId) {

@@ -23,11 +23,12 @@ public class BinController {
     private UserService householdService;
 
     // Get all bins for a specific household
-    @GetMapping("household/{householdId}")
-    public ResponseEntity<List<Bin>> getBinsByHousehold(@PathVariable Long householdId) {
+    @GetMapping("/household/{householdId}/bins")
+    public ResponseEntity<List<Bin>> getBinsForHousehold(@PathVariable Long householdId) {
         Optional<Household> household = householdService.getHouseholdById(householdId);
         if (household.isPresent()) {
-            return ResponseEntity.ok(binService.getBinsByHousehold(householdId));
+            List<Bin> bins = binService.getBinsByHouseholdId(householdId);
+            return ResponseEntity.ok(bins);
         }
         return ResponseEntity.notFound().build();
     }
@@ -45,11 +46,11 @@ public class BinController {
     }
 
     // Get a bin by ID (for a specific household)
-    // @GetMapping("/{binId}")
-    // public ResponseEntity<Bin> getBinById(@PathVariable Long householdId, @PathVariable Long binId) {
-    //     Optional<Bin> bin = binService.getBinByIdAndHouseholdId(binId, householdId);
-    //     return bin.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    // }
+    @GetMapping("/{binId}")
+    public ResponseEntity<Bin> getBinById(@PathVariable Long householdId, @PathVariable Long binId) {
+        Optional<Bin> bin = binService.getBinByIdAndHouseholdId(binId, householdId);
+        return bin.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     // Update a bin for a household
     // @PutMapping("/{binId}")
