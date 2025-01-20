@@ -2,13 +2,15 @@ package com.enviro.assessment.inter001.sivesandla.model;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.List;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "household")
 public class Household {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long householdId;
 
     @Column(nullable = false)
     private String firstName;
@@ -30,14 +32,19 @@ public class Household {
 
     @Column(nullable = false, unique = true, length = 10)
     private String username;
+    
+    // To nsure the Household entity has the corresponding @OneToMany relationship
+    @OneToMany(mappedBy = "household", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Bin> bins = new ArrayList<>();
+
 
     // Getters and Setters
-    public Long getId() {
-        return id;
+    public Long getHouseholdId() {
+        return householdId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setHouseholdId(Long householdId) {
+        this.householdId = householdId;
     }
 
     public String getFirstName() {

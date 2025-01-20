@@ -26,6 +26,10 @@ public class BinService {
         return binRepository.save(bin);
     }
 
+    public Optional<Bin> getBinsByHousehold(Long householdId) {
+        return binRepository.findByHousehold_HouseholdId(householdId);
+    }
+
     public void deleteBin(Long binId) {
         binRepository.deleteById(binId);
     }

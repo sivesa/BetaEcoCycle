@@ -19,7 +19,13 @@ public class Bin {
     @Column(nullable = false)
     private String status; // Full/Empty
 
+    // Add relationship with Household
+    @ManyToOne(fetch = FetchType.LAZY, optional = false) // TODO: difference for @OneToMany relationship????
+    @JoinColumn(name = "household_id", nullable = false)
+    private Household household;
+
     // Getters and Setters
+
     public Long getBinId() {
         return binId;
     }
@@ -51,4 +57,13 @@ public class Bin {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Household getHousehold() {
+        return household;
+    }
+
+    public void setHousehold(Household household) {
+        this.household = household;
+    }
 }
+

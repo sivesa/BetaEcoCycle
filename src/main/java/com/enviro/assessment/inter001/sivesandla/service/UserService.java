@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 //import java.util.UUID;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -85,6 +86,16 @@ public class UserService {
         }
 
         return false;
+    }
+    
+    /**
+     * Retrieve a household by its ID.
+     *
+     * @param householdId The ID of the household.
+     * @return An Optional containing the household if found, or an empty Optional if not.
+     */
+    public Optional<Household> getHouseholdById(Long householdId) {
+        return householdRepository.findById(householdId);
     }
 
     /**
