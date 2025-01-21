@@ -16,6 +16,13 @@ public interface BinRepository extends JpaRepository<Bin, Long> {
     
     @Query("SELECT b FROM Bin b WHERE b.household.id = :householdId")
     List<Bin> findByHouseholdId(@Param("householdId") Long householdId);
+    
+    // @Query("SELECT b FROM Bin b WHERE b.id = :binId AND b.household.id = :householdId")
+    // Optional<Bin> findByIdAndHouseholdId(@Param("binId") Long binId, @Param("householdId") Long householdId);
+    
+    @Query("SELECT b FROM Bin b WHERE b.id = :binId AND b.household.id = :householdId")
+    Optional<Bin> findByBinIdAndHouseholdId(@Param("binId") Long binId, @Param("householdId") Long householdId);
+
 
     // Optional<Bin> findByIdAndHouseholdId(Long binId, Long householdId);
 }

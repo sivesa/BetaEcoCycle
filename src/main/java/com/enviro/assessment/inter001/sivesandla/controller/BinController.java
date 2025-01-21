@@ -46,13 +46,14 @@ public class BinController {
     }
 
     // Get a bin by ID (for a specific household)
-    @GetMapping("/{binId}")
+    @GetMapping("/household/{householdId}/bin/{binId}")
     public ResponseEntity<Bin> getBinById(@PathVariable Long householdId, @PathVariable Long binId) {
         Optional<Bin> bin = binService.getBinByIdAndHouseholdId(binId, householdId);
-        return bin.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return bin.map(ResponseEntity::ok)
+                  .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Update a bin for a household
+    // Update a bin for a household ::TODO ::
     // @PutMapping("/{binId}")
     // public ResponseEntity<Bin> updateBin(
     //     @PathVariable Long householdId, 
@@ -71,13 +72,13 @@ public class BinController {
     // }
 
     // Delete a bin from a household
-    // @DeleteMapping("/{binId}")
-    // public ResponseEntity<Void> deleteBin(@PathVariable Long householdId, @PathVariable Long binId) {
-    //     Optional<Bin> bin = binService.getBinByIdAndHouseholdId(binId, householdId);
-    //     if (bin.isPresent()) {
-    //         binService.deleteBin(binId);
-    //         return ResponseEntity.noContent().build();
-    //     }
-    //     return ResponseEntity.notFound().build();
-    // }
+    @DeleteMapping("/shred/bin/{binId}")
+    public ResponseEntity<Void> deleteBin(@PathVariable Long householdId, @PathVariable Long binId) {
+        Optional<Bin> bin = binService.getBinByIdAndHouseholdId(binId, householdId);
+        if (bin.isPresent()) {
+            binService.deleteBin(binId);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
 }

@@ -1,6 +1,7 @@
 package com.enviro.assessment.inter001.sivesandla.model;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "bin")
@@ -20,8 +21,9 @@ public class Bin {
     private String status; // Full/Empty
 
     // Add relationship with Household
-    @ManyToOne(fetch = FetchType.LAZY, optional = false) // TODO: difference for @OneToMany relationship????
+    @ManyToOne(fetch = FetchType.LAZY, optional = false) 
     @JoinColumn(name = "household_id", nullable = false)
+    @JsonIgnore // TODO: use DTO instead
     private Household household;
 
     // Getters and Setters
